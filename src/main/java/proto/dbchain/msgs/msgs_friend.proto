@@ -1,0 +1,41 @@
+syntax = "proto3";
+package dbchain.msgs;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/tharsis/ethermint/x/dbchain/internal/types";
+
+//// MsgAddFriend defines a CreateTable message
+//type MsgAddFriend struct {
+//	Owner      sdk.AccAddress `json:"owner"`
+//	OwnerName  string         `json:"owner_name"`
+//	FriendAddr string         `json:"friend_addr"`
+//	FriendName string         `json:"friend_name"`
+//}
+message MsgAddFriend {
+  string owner = 1 ;
+  string owner_name = 2;
+  string friend_addr = 3;
+  string friend_name = 4;
+}
+
+//type MsgDropFriend struct {
+//	Owner      sdk.AccAddress `json:"owner"`
+//	FriendAddr string         `json:"friend_addr"`
+//}
+message MsgDropFriend {
+  string owner = 1 ;
+  string friend_addr = 2;
+}
+
+//// MsgRespondFriend defines a CreateTable message
+//type MsgRespondFriend struct {
+//	Owner      sdk.AccAddress `json:"owner"`
+//	FriendAddr string         `json:"friend_addr"`
+//	Action     string         `json:"action"`
+//}
+message MsgRespondFriend {
+  string owner = 1 ;
+  string friend_addr = 2;
+  string action = 3;
+}

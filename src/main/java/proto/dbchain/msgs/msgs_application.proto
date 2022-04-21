@@ -1,0 +1,109 @@
+syntax = "proto3";
+package dbchain.msgs;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/tharsis/ethermint/x/dbchain/internal/types";
+
+// MsgCreateApplication defines a CreateApplication message
+//type MsgCreateApplication struct {
+//	Owner              sdk.AccAddress `json:"owner"`
+//	Name               string         `json:"name"`
+//	Description        string         `json:"description"`
+//	PermissionRequired bool           `json:"permission_required"`
+//}
+message MsgCreateApplication {
+  string owner = 1 ;
+  string name = 2;
+  string description = 3;
+  bool permissionRequired = 4 ;
+}
+
+//type MsgDropApplication struct {
+//	Owner   sdk.AccAddress `json:"owner"`
+//	AppCode string         `json:"app_code"`
+//}
+
+message MsgDropApplication {
+  string owner = 1 ;
+  string appCode = 2;
+}
+
+//type MsgRecoverApplication struct {
+//	Owner   sdk.AccAddress `json:"owner"`
+//	AppCode string         `json:"app_code"`
+//}
+
+message MsgRecoverApplication {
+  string owner = 1 ;
+  string app_code = 2;
+}
+
+//type MsgModifyDatabaseUser struct {
+//	Owner   sdk.AccAddress `json:"owner"`
+//	AppCode string         `json:"app_code"`
+//	Action  string         `json:"action"`
+//	User    sdk.AccAddress `json:"user"`
+//}
+
+message MsgModifyDatabaseUser {
+  string owner = 1 ;
+  string app_code = 2;
+  string action = 3;
+  string user = 4 ;
+}
+
+//type MsgCreateSysDatabase struct {
+//	Owner sdk.AccAddress `json:"owner"`
+//}
+message MsgCreateSysDatabase {
+  string owner = 1 ;
+}
+
+//type MsgSetSchemaStatus struct {
+//	Owner   sdk.AccAddress `json:"owner"`
+//	AppCode string         `json:"app_code"`
+//	Status  string         `json:"status"`
+//}
+
+message MsgSetSchemaStatus {
+  string owner = 1 ;
+  string app_code = 2;
+  string status = 3;
+}
+
+//// MsgSetDatabasePermission sets the PermissionRequired of a database
+//type MsgSetDatabasePermission struct {
+//	Owner              sdk.AccAddress `json:"owner"`
+//	AppCode          string         `json:"app_code"`
+//	PermissionRequired string         `json:"permission_required"`
+//}
+
+message MsgSetDatabasePermission {
+  string owner = 1 ;
+  string app_code = 2;
+  string permission_required = 3;
+}
+
+//type MsgSetAppUserFileVolumeLimit struct {
+//	Owner   sdk.AccAddress `json:"owner"`
+//	AppCode string         `json:"app_code"`
+//	Size  string         `json:"size"` //uint of size is byte. when size was set 0 or negative, it means no limit
+//}
+message MsgSetAppUserFileVolumeLimit {
+  string owner = 1 ;
+  string app_code = 2;
+  string size = 3;
+}
+
+//type MsgSetDatabaseDataStatus struct {
+//	Owner   sdk.AccAddress `json:"owner"`
+//	AppCode string         `json:"app_code"`
+//	Status  string         `json:"status"`
+//}
+
+message MsgSetDatabaseDataStatus {
+  string owner = 1 ;
+  string app_code = 2;
+  string status = 3;
+}

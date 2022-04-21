@@ -1,0 +1,19 @@
+syntax = "proto3";
+package dbchain.msgs;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/tharsis/ethermint/x/dbchain/internal/types";
+
+//// MsgCreateApplication defines a CreateApplication message
+//type MsgSaveUserPrivateKey struct {
+//	Owner   sdk.AccAddress `json:"owner"`
+//	User    string         `json:"user"`
+//	KeyInfo string         `json:"key_info"`
+//}
+
+message MsgSaveUserPrivateKey {
+  string owner = 1 ;
+  string user = 2;
+  string key_info = 3;
+}

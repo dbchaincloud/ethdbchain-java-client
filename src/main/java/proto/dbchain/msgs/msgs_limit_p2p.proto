@@ -1,0 +1,26 @@
+syntax = "proto3";
+package dbchain.msgs;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/tharsis/ethermint/x/dbchain/internal/types";
+//// MsgChangeP2PTransferLimit defines a  limit of transfer message
+//type MsgModifyP2PTransferLimit struct {
+//	Owner sdk.AccAddress `json:"owner"`
+//	Limit bool           `json:"limit"`
+//}
+message MsgModifyP2PTransferLimit {
+  string owner = 1 ;
+  bool limit = 2;
+}
+
+//type MsgModifyTokenKeeperMember struct {
+//	Owner  sdk.AccAddress `json:"owner"`
+//	Action string         `json:"action"` //add or remove
+//	Member sdk.AccAddress `json:"member"`
+//}
+message MsgModifyTokenKeeperMember {
+  string owner = 1 ;
+  string action = 2;
+  string member = 3 ;
+}

@@ -1,0 +1,64 @@
+syntax = "proto3";
+package dbchain.msgs;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/tharsis/ethermint/x/dbchain/internal/types";
+
+//// MsgCreatePoll defines a CreatePoll message
+//type MsgInsertRow struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	Fields    RowFieldsJson  `json:"fields"`
+//}
+message MsgInsertRow {
+  string owner = 1 ;
+  string app_code = 2;
+  string table_name = 3;
+  bytes fields = 4;
+}
+
+//type MsgUpdateRow struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	Id        uint           `json:"id"`
+//	Fields    RowFieldsJson  `json:"fields"`
+//}
+//message MsgUpdateRow {
+//  string owner = 1 ;
+//  string app_code = 2;
+//  string table_name = 3;
+//  uint32 id = 4;
+//  bytes fields = 5;
+//}
+
+//type MsgDeleteRow struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	Id        uint           `json:"id"`
+//}
+//message MsgDeleteRow {
+//  string owner = 1 ;
+//  string app_code = 2;
+//  string table_name = 3;
+//  uint32 id = 4;
+//}
+
+
+//type MsgFreezeRow struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	Id        uint           `json:"id"`
+//}
+message MsgFreezeRow {
+  string owner = 1 ;
+  string app_code = 2;
+  string table_name = 3;
+  uint32 id = 4;
+}
+
+//

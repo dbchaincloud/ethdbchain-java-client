@@ -1,0 +1,47 @@
+syntax = "proto3";
+package dbchain.msgs;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/tharsis/ethermint/x/dbchain/internal/types";
+
+//type MsgAddFunction struct {
+//	Owner        sdk.AccAddress `json:"owner"`
+//	AppCode      string         `json:"app_code"`
+//	FunctionName string         `json:"function_name"`
+//	Description  string         `json:"description"`
+//	Body         string         `json:"body"`
+//}
+message MsgAddFunction {
+  string owner = 1 ;
+  string app_code = 2;
+  string function_name = 3;
+  string description = 4;
+  string body = 5;
+}
+
+//type MsgCallFunction struct {
+//	Owner        sdk.AccAddress `json:"owner"`
+//	AppCode      string         `json:"app_code"`
+//	FunctionName string         `json:"function_name"`
+//	Argument     string         `json:"argument"`
+//}
+message MsgCallFunction {
+  string owner = 1 ;
+  string app_code = 2;
+  string function_name = 3;
+  string argument = 4;
+}
+
+//type MsgDropFunction struct {
+//	Owner        sdk.AccAddress `json:"owner"`
+//	AppCode      string         `json:"app_code"`
+//	FunctionName string         `json:"function_name"`
+//}
+
+message MsgDropFunction {
+  string owner = 1 ;
+  string app_code = 2;
+  string function_name = 3;
+}
+

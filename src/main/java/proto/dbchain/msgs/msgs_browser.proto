@@ -1,0 +1,26 @@
+syntax = "proto3";
+package dbchain.msgs;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/tharsis/ethermint/x/dbchain/internal/types";
+
+//    type MsgUpdateTotalTx struct {
+//Owner sdk.AccAddress `json:"owner"`
+//    Data  string         `json:"date"`
+//    }
+
+message MsgUpdateTotalTx {
+  string owner = 1 ;
+  string data = 2;
+}
+
+//type MsgUpdateTxStatistic struct {
+//	Owner sdk.AccAddress `json:"owner"`
+//	Data  string         `json:"date"`
+//}
+
+message MsgUpdateTxStatistic {
+  string owner = 1 ;
+  string data = 2;
+}

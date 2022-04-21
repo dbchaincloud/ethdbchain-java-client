@@ -1,0 +1,49 @@
+syntax = "proto3";
+package dbchain.msgs;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/tharsis/ethermint/x/dbchain/internal/types";
+
+// MsgBlockAccount defines an SDK message for blocking an account.
+message MsgBlockAccount {
+    string address = 1;
+    string operator = 2;
+}
+
+// MsgBlockAccountResponse defines the Msg/BlockAccount response type.
+message MsgBlockAccountResponse { }
+
+// MsgUnblockAccount defines an SDK message for unblocking an account.
+message MsgUnblockAccount {
+    string address = 1;
+    string operator = 2;
+}
+
+// MsgUnblockAccountResponse defines the Msg/UnblockAccount response type.
+message MsgUnblockAccountResponse { }
+
+
+// MsgBlockContract defines an SDK message for blocking an contract.
+message MsgBlockContract {
+    string contract_address = 1;
+    string operator = 2;
+}
+
+// MsgBlockContractResponse defines the Msg/MsgBlockContract response type.
+message MsgBlockContractResponse { }
+
+// MsgUnblockContract defines an SDK message for unblocking an contract.
+message MsgUnblockContract {
+    string contract_address = 1;
+    string operator = 2;
+}
+
+// MsgUnblockAccountResponse defines the Msg/MsgUnblockContract response type.
+message MsgUnblockContractResponse { }
+
+// MsgBlockContract defines an SDK message for destroying an contract.
+message MsgDestroyContract {
+    string contract_address = 1;
+    string operator = 2;
+}

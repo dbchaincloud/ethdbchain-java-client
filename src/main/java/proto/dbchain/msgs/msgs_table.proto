@@ -1,0 +1,149 @@
+syntax = "proto3";
+package dbchain.msgs;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/tharsis/ethermint/x/dbchain/internal/types";
+//// MsgCreateTable defines a CreateTable message
+//type MsgCreateTable struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	Fields    []string       `json:"fields"`
+//}
+message MsgCreateTable {
+  string owner = 1 ;
+  string app_code = 2;
+  string table_name = 3;
+  repeated string fields = 4;
+}
+
+//type MsgDropTable struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//}
+//message MsgDropTable {
+//  string owner = 1 ;
+//  string app_code = 2;
+//  string table_name = 3;
+//}
+
+//type MsgModifyOption struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	Action    string         `json:"action"`
+//	Option    string         `json:"option"`
+//}
+message MsgModifyOption {
+  string owner = 1 ;
+  string app_code = 2;
+  string table_name = 3;
+  string action = 4;
+  string option = 5;
+}
+
+//type MsgAddInsertFilter struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	Filter    string         `json:"filter"`
+//}
+message MsgAddInsertFilter {
+  string owner = 1 ;
+  string app_code = 2;
+  string table_name = 3;
+  string filter = 4;
+}
+
+//type MsgAddTrigger struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	Trigger   string         `json:"trigger"`
+//}
+message MsgAddTrigger {
+  string owner = 1 ;
+  string app_code = 2;
+  string table_name = 3;
+  string trigger = 4;
+}
+
+//type MsgDropTrigger struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//}
+message MsgDropTrigger {
+  string owner = 1 ;
+  string app_code = 2;
+  string table_name = 3;
+}
+
+//type MsgDropInsertFilter struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//}
+message MsgDropInsertFilter {
+  string owner = 1 ;
+  string app_code = 2;
+  string table_name = 3;
+}
+
+//type MsgSetTableMemo struct {
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	Memo      string         `json:"memo"`
+//	Owner     sdk.AccAddress `json:"owner"`
+//}
+message MsgSetTableMemo {
+  string app_code = 1;
+  string table_name = 2;
+  string memo = 3;
+  string owner = 4 ;
+}
+
+//type MsgModifyTableAssociation struct {
+//	AppCode          string `json:"app_code"`
+//	TableName        string `json:"table_name"`
+//	AssociationMode  string `json:"association_mode"`
+//	AssociationTable string `json:"association_table"`
+//	Method           string `json:"method"`
+//	ForeignKey       string `json:"foreign_key"`
+//	Option           string `json:"option"`
+//
+//	Owner sdk.AccAddress `json:"owner"`
+//}
+message MsgModifyTableAssociation {
+  string app_code = 1;
+  string table_name = 2;
+  string association_mode = 3;
+  string association_table = 4;
+  string method = 5;
+  string foreign_key = 6;
+  string option = 7;
+  string owner = 8 ;
+
+}
+
+//type MsgAddCounterCache struct {
+//	AppCode           string `json:"app_code"`
+//	TableName         string `json:"table_name"`
+//	AssociationTable  string `json:"association_table"`
+//	ForeignKey        string `json:"foreign_key"`
+//	CounterCacheField string `json:"counter_cache_field"`
+//	Limit             string `json:"limit"`
+//
+//	Owner sdk.AccAddress `json:"owner"`
+//}
+message MsgAddCounterCache {
+  string	app_code = 1;//
+  string	table_name = 2;
+  string	association_table = 3;
+  string	foreign_key = 4;
+  string	counter_cache_field = 5;
+  string	limit = 6;
+  string owner = 7 ;
+}

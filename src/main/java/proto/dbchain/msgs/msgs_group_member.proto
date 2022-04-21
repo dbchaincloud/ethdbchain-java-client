@@ -1,0 +1,24 @@
+syntax = "proto3";
+package dbchain.msgs;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/tharsis/ethermint/x/dbchain/internal/types";
+
+//type MsgModifyGroupMember struct {
+//	AppCode string         `json:"app_code"`
+//	Group   string         `json:"group"`
+//	Action  string         `json:"action"`
+//	Member  sdk.AccAddress `json:"member"`
+//	Owner   sdk.AccAddress `json:"owner"`
+//}
+message MsgModifyGroupMember {
+  string app_code = 1;
+  string group = 2;
+  string action = 3;
+  string member = 4  ;
+  string owner = 5 ;
+}
+
+
+

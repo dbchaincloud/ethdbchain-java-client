@@ -1,0 +1,20 @@
+syntax = "proto3";
+package dbchain.msgs;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/tharsis/ethermint/x/dbchain/internal/types";
+
+// Query defines the gRPC querier service.
+service Query {
+  // Account queries an Ethereum account.
+  rpc QueryCheckChainId(QueryCheckChainIdRequest) returns (QueryCheckChainIdResponse) {
+  }
+}
+
+message QueryCheckChainIdRequest {
+
+}
+message QueryCheckChainIdResponse {
+
+}

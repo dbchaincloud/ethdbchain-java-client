@@ -1,0 +1,123 @@
+syntax = "proto3";
+package dbchain.msgs;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/tharsis/ethermint/x/dbchain/internal/types";
+
+//type MsgAddColumn struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	Field     string         `json:"field"`
+//}
+
+message MsgAddColumn {
+  string owner = 1 ;
+  string app_code = 2;
+  string table_name = 3;
+  string field = 4;
+}
+
+//type MsgDropColumn struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	Field     string         `json:"field"`
+//}
+message MsgDropColumn {
+  string owner = 1 ;
+  string app_code = 2;
+  string table_name = 3;
+  string field = 4;
+}
+
+//type MsgRenameColumn struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	OldField  string         `json:"old_field"`
+//	NewField  string         `json:"new_field"`
+//}
+message MsgRenameColumn {
+  string owner = 1 ;
+  string app_code = 2;
+  string table_name = 3;
+  string old_field = 4;
+  string new_field = 5;
+}
+
+//type MsgCreateIndex struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	Field     string         `json:"field"`
+//}
+message MsgCreateIndex {
+  string owner = 1 ;
+  string app_code = 2;
+  string table_name = 3;
+  string field = 4;
+}
+
+//type MsgDropIndex struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	Field     string         `json:"field"`
+//}
+message  MsgDropIndex {
+  string owner = 1 ;
+  string app_code = 2;
+  string table_name = 3;
+  string field = 4;
+}
+
+//type MsgModifyColumnOption struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	FieldName string         `json:"field_name"`
+//	Action    string         `json:"action"`
+//	Option    string         `json:"option"`
+//}
+message MsgModifyColumnOption {
+  string owner = 1 ;
+  string app_code = 2;
+  string table_name = 3;
+  string field_name = 4;
+  string action = 5;
+  string option = 6;
+}
+
+//type MsgSetColumnDataType struct {
+//	Owner     sdk.AccAddress `json:"owner"`
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	FieldName string         `json:"field_name"`
+//	DataType  string         `json:"data_type"`
+//}
+
+message MsgSetColumnDataType {
+  string owner = 1 ;
+  string app_code = 2;
+  string table_name = 3;
+  string field_name = 4;
+  string data_type = 5;
+}
+
+
+//type MsgSetColumnMemo struct {
+//	AppCode   string         `json:"app_code"`
+//	TableName string         `json:"table_name"`
+//	FieldName string         `json:"field_name"`
+//	Memo      string         `json:"memo"`
+//	Owner     sdk.AccAddress `json:"owner"`
+//}
+message MsgSetColumnMemo {
+  string app_code = 1;
+  string table_name = 2;
+  string field_name = 3;
+  string memo = 4;
+  string owner = 5 ;
+}

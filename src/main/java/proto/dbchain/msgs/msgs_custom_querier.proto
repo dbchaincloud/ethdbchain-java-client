@@ -1,0 +1,34 @@
+syntax = "proto3";
+package dbchain.msgs;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/tharsis/ethermint/x/dbchain/internal/types";
+
+//type MsgAddCustomQuerier struct {
+//	Owner       sdk.AccAddress `json:"owner"`
+//	AppCode     string         `json:"app_code"`
+//	QuerierName string         `json:"querier_name"`
+//	Description string         `json:"description"`
+//	Body        string         `json:"body"`
+//}
+
+message MsgAddCustomQuerier {
+  string owner = 1 ;
+  string app_code = 2;
+  string querier_name = 3;
+  string description = 4;
+  string body = 5;
+}
+
+//type MsgDropCustomQuerier struct {
+//	Owner       sdk.AccAddress `json:"owner"`
+//	AppCode     string         `json:"app_code"`
+//	QuerierName string         `json:"querier_name"`
+//}
+message MsgDropCustomQuerier {
+  string owner = 1 ;
+  string app_code = 2;
+  string querier_name = 3;
+}
+
