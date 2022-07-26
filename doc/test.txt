@@ -1,0 +1,22 @@
+1.src/test/java/ApplicationMsgsTest增加了createApplicationForTest()方法测试多笔交易
+
+2.src/main/java/com/dbchain/tx/DBChainTxService.java中增加了buildAndSendTxForTest
+	其中：
+	 for(long i = 0; i < 100; i++) {
+            Account account = queryAccount(baseClient, keyInfo.getAddress());
+            if (i == 0){
+                seq = account.getSequence();
+                System.out.println("first query seq :" + account.getSequence());
+            }else {
+                account.setSequence(seq + i);
+                System.out.println("next seq :" + account.getSequence());
+            }
+            TxOuterClass.Tx tx = txEngine.signTx(txBody, baseTx, account);
+            byte[] txBz = tx.toByteArray();
+            System.out.println("local hash :");
+            System.out.println(computeTxHash(txBz));
+            ResultTx resultTx = baseClient.getRpcClient().broadcastTx(txBz, BroadcastMode.Async);
+        }
+        i控制交易数量
+ 3.src/test/java/client/BuildClient.java中的buildDBChainOpbClient（）
+ 	配置与连的连接参数及和账户设置

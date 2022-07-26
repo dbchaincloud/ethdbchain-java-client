@@ -23,12 +23,13 @@ import java.util.List;
 
 import static client.BuildClient.buildDBChainOpbClient;
 import static client.BuildClient.buildRESTClient;
+import static com.dbchain.tx.DBChainTxService.buildAndSendTxForTest;
 
 public class ApplicationMsgsTest {
     private static final Logger logger = LoggerFactory.getLogger(ApplicationMsgsTest.class);
 
     @Test
-    public void createApplication() {
+    public void createApplication() throws Exception {
         DBChainOpbClient client = buildDBChainOpbClient();
         DBChainKeyManager km = (DBChainKeyManager) client.getDBChainBaseClient().getKeyManager();
         MsgsApplication.MsgCreateApplication msg = MsgsApplication.MsgCreateApplication.newBuilder()
@@ -48,4 +49,19 @@ public class ApplicationMsgsTest {
             logger.info(e.getMessage());
         }
     }
+
+    @Test
+    public void createApplicationForTest() throws Exception {
+        DBChainOpbClient client = buildDBChainOpbClient();
+        DBChainKeyManager km = (DBChainKeyManager) client.getDBChainBaseClient().getKeyManager();
+        MsgsApplication.MsgCreateApplication msg = MsgsApplication.MsgCreateApplication.newBuilder()
+                .setName("test")//设置数据库名称
+                .setOwner(km.getCurrentKeyInfo().getAddress())//设置数据库拥有者
+                .setDescription("testdesc")//设置数据库描述
+                .setPermissionRequired(false)//设置数据库是否公开
+                .build();
+        List<GeneratedMessageV3> msgs = Collections.singletonList(msg);
+        buildAndSendTxForTest(client, msgs);
+    }
+
 }
