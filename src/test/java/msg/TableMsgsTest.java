@@ -44,6 +44,7 @@ public class TableMsgsTest {
         List<GeneratedMessageV3> msgs = Collections.singletonList(msg);
         try {
             logger.info("tx hash : " + DBChainTxService.buildAndSendTx(client, msgs));
+            Thread.sleep(5000);
             String appCode = "5Q5FJ3UGAM";
             String tableName = "testtb";
             String resp = Querier.queryTableInfo(buildRESTClient(), appCode, tableName);
@@ -52,6 +53,8 @@ public class TableMsgsTest {
             e.printStackTrace();
         }catch (IritaSDKException e){
             logger.info(e.getMessage());
+        }catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
