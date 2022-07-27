@@ -33,15 +33,15 @@ public class DBChainTxService {
         DBChainBaseClient baseClient = client.getDBChainBaseClient();
         TxEngine txEngine = baseClient.getTxEngine();
         TxOuterClass.TxBody txBody = txEngine.buildTxBody(msgs);
-        BaseTx simulateBaseTx = new BaseTx(200000, new Fee("200000", "adbctoken"), BroadcastMode.Commit);
+        BaseTx simulateBaseTx = new BaseTx(200000, new Fee("200000", "adbctoken"), BroadcastMode.Async);
         int gasWanted = computeGasWanted(baseClient.simulateTx(msgs,simulateBaseTx,baseClient.queryAccount(simulateBaseTx)));
         String fee = computeFee(gasWanted,baseClient.getGasPrice());
-        BaseTx baseTx = new BaseTx(gasWanted, new Fee(fee, "adbctoken"), BroadcastMode.Commit);
+        BaseTx baseTx = new BaseTx(gasWanted, new Fee(fee, "adbctoken"), BroadcastMode.Async);
         TxOuterClass.Tx tx = txEngine.signTx(txBody, baseTx, baseClient.queryAccount(baseTx));
         byte[] txBz = tx.toByteArray();
         System.out.println("local hash :");
         System.out.println(computeTxHash(txBz));
-        ResultTx resultTx = baseClient.getRpcClient().broadcastTx(txBz, BroadcastMode.Commit);
+        ResultTx resultTx = baseClient.getRpcClient().broadcastTx(txBz, BroadcastMode.Async);
         return resultTx.getResult().getHash();
     }
 

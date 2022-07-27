@@ -75,7 +75,6 @@ public class DBChainRPCClient extends RpcClient {
         JsonRpc jsonRpc = JsonRpc.WrapTxBytes(txBytes, "broadcast_tx_async");
         ObjectMapper mapper = new ObjectMapper();
         String str = this.httpUtils.post(this.rpcUri, mapper.writeValueAsString(jsonRpc));
-        System.out.println("async resp : " + str);
         JSONObject object = JSON.parseObject(str);
         JSONObject resObj = object.getJSONObject("result");
 
