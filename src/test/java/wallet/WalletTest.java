@@ -43,10 +43,10 @@ public class WalletTest {
     public void getAddressByMnemonic() {
         //String mnemonic = DBChainWallet.createMnemonic();
         //String mnemonic = "lunar spy clerk race family develop asthma flee safe unable aisle equal desert biology viable advice oxygen annual fan debate chef real atom orchard";//test account hqk0
-        String mnemonic = "shoe gift globe link model flag sorry cook above faculty remove divert canyon come refuse excite route cram walnut solid spare point casino mistake";//admin
+        //String mnemonic = "shoe gift globe link model flag sorry cook above faculty remove divert canyon come refuse excite route cram walnut solid spare point casino mistake";//admin
         //String mnemonic = "alter payment curtain rate fashion mimic parrot bamboo shuffle youth token come brick debris wall ostrich champion salon wide easily rely razor sell differ";//latn
         //String mnemonic = "owner erode dwarf average fruit venture okay senior carpet hundred minimum below";//7akf
-        //String mnemonic = "speak universe hurry method human mule detail shuffle run squirrel exhibit account";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+        String mnemonic = "speak universe hurry method human mule detail shuffle run squirrel exhibit account";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
         String address = DBChainWallet.getAddressByMnemonic(mnemonic);
         logger.info(address);
     }
@@ -57,8 +57,8 @@ public class WalletTest {
         //String mnemonic = "lunar spy clerk race family develop asthma flee safe unable aisle equal desert biology viable advice oxygen annual fan debate chef real atom orchard";//test account hqk0
         //String mnemonic = "shoe gift globe link model flag sorry cook above faculty remove divert canyon come refuse excite route cram walnut solid spare point casino mistake";//admin
         //String mnemonic = "alter payment curtain rate fashion mimic parrot bamboo shuffle youth token come brick debris wall ostrich champion salon wide easily rely razor sell differ";//latn
-        //String mnemonic = "owner erode dwarf average fruit venture okay senior carpet hundred minimum below";//7akf
-        String mnemonic = "speak universe hurry method human mule detail shuffle run squirrel exhibit account";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+        String mnemonic = "owner erode dwarf average fruit venture okay senior carpet hundred minimum below";//7akf
+        //String mnemonic = "speak universe hurry method human mule detail shuffle run squirrel exhibit account";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
         BigInteger privKey = getBigIntTypePrivkeyByMnemonic(mnemonic);
         byte[] compressPubBytes = ECKey.publicKeyFromPrivate(privKey,true);
         String pubkey =  encodeHexString(compressPubBytes);

@@ -37,7 +37,7 @@ public class TableMsgsTest {
 
         MsgsTable.MsgCreateTable msg = MsgsTable.MsgCreateTable.newBuilder()
                 .setOwner(km.getCurrentKeyInfo().getAddress())
-                .setAppCode("5Q5FJ3UGAM")//指定在对应的数据库下建表
+                .setAppCode("ASZQZTMKBX")//指定在对应的数据库下建表
                 .addAllFields(fields)
                 .setTableName("testtb")//设置表名
                 .build();
@@ -45,7 +45,7 @@ public class TableMsgsTest {
         try {
             logger.info("tx hash : " + DBChainTxService.buildAndSendTx(client, msgs));
             Thread.sleep(5000);
-            String appCode = "5Q5FJ3UGAM";
+            String appCode = "ASZQZTMKBX";
             String tableName = "testtb";
             String resp = Querier.queryTableInfo(buildRESTClient(), appCode, tableName);
             logger.info("table info : "+resp);

@@ -41,7 +41,7 @@ public class ApplicationMsgsTest {
         List<GeneratedMessageV3> msgs = Collections.singletonList(msg);
         try {
             logger.info("tx hash : " + DBChainTxService.buildAndSendTx(client, msgs));
-            Thread.sleep(4000);
+            Thread.sleep(5000);
             String resp = Querier.queryApplication(buildRESTClient());
             logger.info("appcode : " + QueryUtil.getLastData(resp));//appcode是数据库唯一标识,取得当前创建的数据库的appcode
         } catch (IOException e) {
@@ -64,7 +64,8 @@ public class ApplicationMsgsTest {
                 .setPermissionRequired(false)//设置数据库是否公开
                 .build();
         List<GeneratedMessageV3> msgs = Collections.singletonList(msg);
-        buildAndSendTxForTest(client, msgs);
+        int times = 100;
+        buildAndSendTxForTest(client, msgs, times);
     }
 
 }

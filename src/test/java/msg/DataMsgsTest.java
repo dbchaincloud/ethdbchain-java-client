@@ -33,7 +33,7 @@ public class DataMsgsTest {
         map.put("age","15");
         MsgsData.MsgInsertRow msg =  MsgsData.MsgInsertRow.newBuilder()
                 .setOwner(km.getCurrentKeyInfo().getAddress())
-                .setAppCode("5Q5FJ3UGAM")
+                .setAppCode("B8JWTFN7VT")
                 .setTableName("testtb")
                 .setFields(CryptoUtil.transferToBytes(map))
                 .build();
@@ -43,7 +43,7 @@ public class DataMsgsTest {
             logger.info("tx hash :" + DBChainTxService.buildAndSendTx(client, msgs));
             Thread.sleep(5000);
             String queryStr = BasicQueryUtil.basicWhereQuery("testtb", "id", ">=", "1");
-            logger.info("table data :" + Querier.querierDataByCondition(buildRESTClient(),"5Q5FJ3UGAM",queryStr));
+            logger.info("table data :" + Querier.querierDataByCondition(buildRESTClient(),"B8JWTFN7VT",queryStr));
         } catch (IOException e) {
             e.printStackTrace();
         }catch (IritaSDKException e){

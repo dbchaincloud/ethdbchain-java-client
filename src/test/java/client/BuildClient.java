@@ -32,6 +32,12 @@ public class BuildClient {
         String nodeUri = "http://localhost:26657";
         String grpcAddr = "http://localhost:9090";
 
+//        String nodeUri = "http://192.168.0.58:3001/rpc_relay/";
+//        String grpcAddr = "http://192.168.0.58:9090";
+
+        //String nodeUri = "https://ctrlpanel.dbchain.cloud/websocket/";
+        //String grpcAddr = "http://ctrlpanel.dbchain.cloud:9090";
+        //String grpcAddr = "https://ctrlpanel.dbchain.cloud:9090";
        // String nodeUri = "http://192.168.1.164:26657";
 //        String grpcAddr = "http://192.168.0.19:9190";
 //        String nodeUri = "http://192.168.0.19:36657";
@@ -39,8 +45,9 @@ public class BuildClient {
 //        String grpcAddr = "opbtest.bsngate.com:18603";
         String chainId = "ethdbchain_9000-1";
         ClientConfig clientConfig = new ClientConfig(nodeUri, grpcAddr, chainId);
-       //OpbConfig opbConfig = new OpbConfig("110d46138bde4743bef4538734a29184","","");
-       //opbConfig.setEnableTLS(true);
+        //OpbConfig opbConfig = new OpbConfig("110d46138bde4743bef4538734a29184","","");
+//        OpbConfig opbConfig = new OpbConfig("","","");
+//        opbConfig.setEnableTLS(true);
         OpbConfig opbConfig = null;
         DBChainOpbClient client = new DBChainOpbClient(clientConfig, opbConfig, km);
         return client;

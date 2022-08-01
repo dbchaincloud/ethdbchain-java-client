@@ -41,24 +41,28 @@ public class DBChainTxService {
         byte[] txBz = tx.toByteArray();
         System.out.println("local hash :");
         System.out.println(computeTxHash(txBz));
+        System.out.println(txBz.length);
         ResultTx resultTx = baseClient.getRpcClient().broadcastTx(txBz, BroadcastMode.Async);
         return resultTx.getResult().getHash();
     }
 
 
-    public static void buildAndSendTxForTest(DBChainOpbClient client, List<GeneratedMessageV3> msgs) throws Exception {
+    public static void buildAndSendTxForTest(DBChainOpbClient client, List<GeneratedMessageV3> msgs, int times) throws Exception {
         DBChainBaseClient baseClient = client.getDBChainBaseClient();
         TxEngine txEngine = baseClient.getTxEngine();
         TxOuterClass.TxBody txBody = txEngine.buildTxBody(msgs);
         BaseTx simulateBaseTx = new BaseTx(200000, new Fee("200000", "adbctoken"), BroadcastMode.Async);
+        //BaseTx simulateBaseTx = new BaseTx(200000, new Fee("200000", "adbctoken"), BroadcastMode.Commit);
         int gasWanted = computeGasWanted(baseClient.simulateTx(msgs,simulateBaseTx,baseClient.queryAccount(simulateBaseTx)));
         String fee = computeFee(gasWanted,baseClient.getGasPrice());
         BaseTx baseTx = new BaseTx(gasWanted, new Fee(fee, "adbctoken"), BroadcastMode.Async);
+        //BaseTx baseTx = new BaseTx(gasWanted, new Fee(fee, "adbctoken"), BroadcastMode.Commit);
         KeyInfo keyInfo = baseClient.getKeyManager().getKeyDAO().read(baseTx.getFrom(), baseTx.getPassword());
 
         long seq = 0;
-
-        for(long i = 0; i < 100; i++) {
+        long start,end;
+        start = System.currentTimeMillis();
+        for(long i = 0; i < times; i++) {
             Account account = queryAccount(baseClient, keyInfo.getAddress());
             if (i == 0){
                 seq = account.getSequence();
@@ -69,10 +73,16 @@ public class DBChainTxService {
             }
             TxOuterClass.Tx tx = txEngine.signTx(txBody, baseTx, account);
             byte[] txBz = tx.toByteArray();
-            System.out.println("local hash :");
-            System.out.println(computeTxHash(txBz));
+            //System.out.println("local hash :");
+            //System.out.println(computeTxHash(txBz));
+//            System.out.println(txBz.length);
             ResultTx resultTx = baseClient.getRpcClient().broadcastTx(txBz, BroadcastMode.Async);
+            //ResultTx resultTx = baseClient.getRpcClient().broadcastTx(txBz, BroadcastMode.Commit);
+            Thread.sleep(45);
+            System.out.println(resultTx.getResult().getHash());
         }
+        end = System.currentTimeMillis();
+        System.out.println("start time:" + start+ "; end time:" + end+ "; Run Time:" + (end - start) + "(ms)");
     }
 
     public static Account queryAccount(DBChainBaseClient baseclient, String address) {

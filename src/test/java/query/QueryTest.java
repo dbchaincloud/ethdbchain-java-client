@@ -21,7 +21,7 @@ public class QueryTest {
     @Test
     public void queryAccount() {
         RESTClient restClient = buildRESTClient();
-        String resp = Querier.getAccount(restClient, "dbc14ppnu5c4whxvl8sej7yqp4zjsp79u0my8mhqk0");
+        String resp = Querier.getAccount(restClient, "dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7");
        // String resp = Querier.getAccount(restClient, "dbc1l5u7efmwj46zpwh6fhgkehqj2e7wxtg552hugh");
         logger.info(resp);
     }
@@ -44,7 +44,8 @@ public class QueryTest {
     @Test
     public void queryTx() {
         RESTClient restClient = buildRESTClient();
-        String txHash = "5EB7D214E58B6081C90ABC24BEE5D942766B2AEEA26F8620D3FB9FD4919ED6F8";
+        //String txHash = "5EB7D214E58B6081C90ABC24BEE5D942766B2AEEA26F8620D3FB9FD4919ED6F8";
+        String txHash = "3A930B8A03E5A5F69A2C3A665A933206DBA68238197BFD0247D0644365BC910C";
         String resp = Querier.getTxDetailByHash(restClient, txHash);//根据交易哈希查询交易详情
         logger.info(resp);
     }
