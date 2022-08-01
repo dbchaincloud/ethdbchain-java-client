@@ -26,8 +26,10 @@ public class WalletTest {
 
     @Test
     public void createMnemonic() {
-       String mnemonic = DBChainWallet.createMnemonic();
-       logger.info(mnemonic);
+        for(int i = 0; i < 5; i ++){
+            String mnemonic = DBChainWallet.createMnemonic();
+            logger.info(mnemonic);
+        }
     }
 
     @Test
@@ -46,9 +48,45 @@ public class WalletTest {
         //String mnemonic = "shoe gift globe link model flag sorry cook above faculty remove divert canyon come refuse excite route cram walnut solid spare point casino mistake";//admin
         //String mnemonic = "alter payment curtain rate fashion mimic parrot bamboo shuffle youth token come brick debris wall ostrich champion salon wide easily rely razor sell differ";//latn
         //String mnemonic = "owner erode dwarf average fruit venture okay senior carpet hundred minimum below";//7akf
-        String mnemonic = "speak universe hurry method human mule detail shuffle run squirrel exhibit account";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
-        String address = DBChainWallet.getAddressByMnemonic(mnemonic);
-        logger.info(address);
+       // String mnemonic = "speak universe hurry method human mule detail shuffle run squirrel exhibit account";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+        //String mnemonic = "miracle jeans parrot recall fault canvas alert purpose notable civil indoor mountain";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+        //String mnemonic = "lady unfold member maximum dolphin clay together tree torch brisk ketchup reason";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+        //String mnemonic = "solar robust because depart evoke boat mesh purchase insane front before dinner";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+       // String mnemonic = "hello multiply inquiry sea future odor burger boil vacant major combine cave";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+        //String mnemonic = "source olive poverty void alone wage extend speed fish voyage average more";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+        //String mnemonic = "thunder salad planet business slender dog market level tell furnace nephew struggle";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+
+
+        String mnemonic1 = "practice obvious paper toilet exhaust social unveil try animal video sing priority";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+        String mnemonic2 = "trap pave plastic cereal decline fog spend tortoise bounce stamp glass answer";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+        String mnemonic3 = "drastic figure nothing unknown clump fashion tenant unit lottery access select more";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+        String mnemonic4 = "meat actress supply cruel middle enact tragic arena asset ramp reduce merge";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+        String mnemonic5 = "chaos mutual raise hood arrow learn seek divert coyote celery cloud fire";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+
+
+
+        //        method humor random shadow token dash near entry health scene harsh elephant
+//        cat pistol sight weapon together true fossil illness orchard mail render ride
+//        execute deliver pair worth riot tool accident race pigeon faculty toward trash
+//        beach tortoise category memory sibling afford physical differ talk burst embark scheme
+//        maximum degree beyond coffee dutch hockey insect rescue large arctic lady october
+
+
+//        String mnemonic = "public jar agent treat select price song spot tunnel worry party spray";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+//        String mnemonic = "grape hub undo slight clarify narrow pause margin scorpion domain glance still";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+//        String mnemonic = "unfold doll powder weekend chalk apart captain scheme smooth social tomato wage";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+//        String mnemonic = "fragile outdoor number gossip cause arrow cargo idea alpha zebra tortoise strong";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+//        String mnemonic = "palm infant exotic tilt portion grain immense change develop burst company merit";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+        String address1 = DBChainWallet.getAddressByMnemonic(mnemonic1);
+        String address2 = DBChainWallet.getAddressByMnemonic(mnemonic2);
+        String address3 = DBChainWallet.getAddressByMnemonic(mnemonic3);
+        String address4 = DBChainWallet.getAddressByMnemonic(mnemonic4);
+        String address5 = DBChainWallet.getAddressByMnemonic(mnemonic5);
+        logger.info(address1);
+        logger.info(address2);
+        logger.info(address3);
+        logger.info(address4);
+        logger.info(address5);
     }
 
     @Test
@@ -57,8 +95,9 @@ public class WalletTest {
         //String mnemonic = "lunar spy clerk race family develop asthma flee safe unable aisle equal desert biology viable advice oxygen annual fan debate chef real atom orchard";//test account hqk0
         //String mnemonic = "shoe gift globe link model flag sorry cook above faculty remove divert canyon come refuse excite route cram walnut solid spare point casino mistake";//admin
         //String mnemonic = "alter payment curtain rate fashion mimic parrot bamboo shuffle youth token come brick debris wall ostrich champion salon wide easily rely razor sell differ";//latn
-        String mnemonic = "owner erode dwarf average fruit venture okay senior carpet hundred minimum below";//7akf
+        //String mnemonic = "owner erode dwarf average fruit venture okay senior carpet hundred minimum below";//7akf
         //String mnemonic = "speak universe hurry method human mule detail shuffle run squirrel exhibit account";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
+        String mnemonic = "miracle jeans parrot recall fault canvas alert purpose notable civil indoor mountain";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
         BigInteger privKey = getBigIntTypePrivkeyByMnemonic(mnemonic);
         byte[] compressPubBytes = ECKey.publicKeyFromPrivate(privKey,true);
         String pubkey =  encodeHexString(compressPubBytes);

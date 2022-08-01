@@ -53,7 +53,9 @@ public class DBChainTxService {
         TxOuterClass.TxBody txBody = txEngine.buildTxBody(msgs);
         BaseTx simulateBaseTx = new BaseTx(200000, new Fee("200000", "adbctoken"), BroadcastMode.Async);
         //BaseTx simulateBaseTx = new BaseTx(200000, new Fee("200000", "adbctoken"), BroadcastMode.Commit);
+        System.out.println("before :" + baseClient.getKeyManager().getCurrentKeyInfo().getAddress());
         int gasWanted = computeGasWanted(baseClient.simulateTx(msgs,simulateBaseTx,baseClient.queryAccount(simulateBaseTx)));
+        System.out.println("after :" + baseClient.getKeyManager().getCurrentKeyInfo().getAddress());
         String fee = computeFee(gasWanted,baseClient.getGasPrice());
         BaseTx baseTx = new BaseTx(gasWanted, new Fee(fee, "adbctoken"), BroadcastMode.Async);
         //BaseTx baseTx = new BaseTx(gasWanted, new Fee(fee, "adbctoken"), BroadcastMode.Commit);
@@ -78,7 +80,7 @@ public class DBChainTxService {
 //            System.out.println(txBz.length);
             ResultTx resultTx = baseClient.getRpcClient().broadcastTx(txBz, BroadcastMode.Async);
             //ResultTx resultTx = baseClient.getRpcClient().broadcastTx(txBz, BroadcastMode.Commit);
-            Thread.sleep(45);
+            //Thread.sleep(45);
             System.out.println(resultTx.getResult().getHash());
         }
         end = System.currentTimeMillis();

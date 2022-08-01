@@ -13,7 +13,8 @@ public class BuildClient {
         String mnemonic = "speak universe hurry method human mule detail shuffle run squirrel exhibit account";//dbc1j9fuggrk45j8q6tc47s4sc42wscl0hzf7h87z7
         DBChainKeyManager km = new DBChainKeyManager();
         km.recover(mnemonic);
-        String url = "http://localhost:1317";
+        //String url = "http://localhost:1317";
+        String url = "http://chain-ytbox.dbchain.cloud:1317";
         // String url = "http://192.168.0.58:1317";
 //        String url = "http://192.168.0.19/relay";
        // String url = "https://opbtest.bsngate.com:18602/api/110d46138bde4743bef4538734a29184/rest";
@@ -29,9 +30,10 @@ public class BuildClient {
         DBChainKeyManager km = new DBChainKeyManager();
         km.recover(mnemonic);
 
-        String nodeUri = "http://localhost:26657";
-        String grpcAddr = "http://localhost:9090";
-
+//        String nodeUri = "http://localhost:26657";
+//        String grpcAddr = "http://localhost:9090";
+        String grpcAddr = "http://chain-ytbox.dbchain.cloud:9090";
+        String nodeUri = "http://chain-ytbox.dbchain.cloud:26657";
 //        String nodeUri = "http://192.168.0.58:3001/rpc_relay/";
 //        String grpcAddr = "http://192.168.0.58:9090";
 

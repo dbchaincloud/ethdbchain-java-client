@@ -57,7 +57,7 @@ public class testThread implements Runnable{
         map.put("age","15");
         MsgsData.MsgInsertRow msg =  MsgsData.MsgInsertRow.newBuilder()
                 .setOwner(km.getCurrentKeyInfo().getAddress())
-                .setAppCode("ASZQZTMKBX")
+                .setAppCode("56HNVSEP9H")
                 .setTableName("testtb")
                 .setFields(CryptoUtil.transferToBytes(map))
                 .build();
